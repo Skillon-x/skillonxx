@@ -1,0 +1,57 @@
+Global build settings
+[
+build
+]
+  # Command to build your React app
+  command = "npm run build"
+
+Directory with the built React app, usually "build" for Create React App
+  publish = "build"
+
+Production context: all deploys from the Production branch set in your site's
+deploy contexts will inherit these settings.
+[
+context.production.environment
+]
+  NODE_VERSION = "14" # or your preferred Node.js version
+
+Deploy Preview context: all deploys generated from a pull/merge request will
+inherit these settings.
+[
+context.deploy-preview
+]
+  command = "npm run build"
+
+Branch Deploy context: all deploys that are not from a pull/merge request or
+from the Production branch will inherit these settings.
+[
+context.branch-deploy
+]
+  command = "npm run build"
+
+Specific branch context: all deploys from this specific branch will inherit
+these settings.
+[
+context.feature
+]
+  command = "npm run build:feature"
+
+Redirects and headers are GLOBAL for all builds – they do not get scoped to
+contexts no matter where you define them in the file.
+[[
+redirects
+]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+
+Headers to return with requests for the specified paths
+[[
+headers
+]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/"
+    [
+headers.values
+]
+    Access-Control-Allow-Origin = "*"

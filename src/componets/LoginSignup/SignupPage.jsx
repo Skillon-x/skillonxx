@@ -239,7 +239,7 @@ const SignupPage = () => {
       const baseUrl = 'https://skillonx-server.onrender.com';
       const prodUrl = "https://skillonx-server.onrender.com"
       const devUrl = 'http://localhost:5000'
-      const url = userType === 'student' ? `${devUrl}/student` : `${devUrl
+      const url = userType === 'student' ? `${prodUrl}/student` : `${prodUrl
 
         }/university`;
       // console.log(url)

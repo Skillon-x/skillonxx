@@ -48,7 +48,7 @@ const useDashboardData = () => {
         const token = localStorage.getItem('token')
 
         setLoading(true);
-        const response = await fetch('http://localhost:5000/admin/dashboard',
+        const response = await fetch('https://skillonx-server.onrender.com/admin/dashboard',
           {
             method: 'GET',
             headers: {
